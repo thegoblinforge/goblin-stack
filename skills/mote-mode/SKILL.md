@@ -12,7 +12,7 @@ Sibling skills live at `../<name>/SKILL.md` from this file. Run one via Skill to
 
 ## Triggers
 
-- Any code → name data shape first, pick its organizing structure (Model the Domain). Crosses function boundary → sketch types and signatures before bodies.
+- Any code → name data shape first, pick its organizing structure (Model the Domain). Crosses function boundary → sketch types and signatures before bodies. `.ts`/`.tsx` → **typescript**.
 - Fork on "which approach / what should this do" → if a run could answer it (behavior, timing, output, perf), run a quick sketch and let result decide. Ask human only for real product or taste calls.
 - Large, cross-cutting, or step-away work → **figure-it-out**.
 - Before saying done → **verify** (one positive + one negative scenario, real artifact).

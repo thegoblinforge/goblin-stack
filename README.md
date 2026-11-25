@@ -31,6 +31,7 @@ Then in a session, type `/mote-stack:mote-mode`. Run `/mote-stack:setup-mote` on
 | `figure-it-out` | Designs a bespoke plan for large or cross-cutting work. |
 | `interrogate` | Adversarial review by at most two reviewers. Only runs when you ask. |
 | `setup-mote` | Writes `~/.claude/rules/mote-models.md`. Cheapest model first, low or medium effort. |
+| `typescript` | Ten TypeScript rules on one page: unions, branded types, no `as`, parsing at boundaries. Loads for `.ts` and `.tsx` files. |
 
 The `mote-agent` subagent handles scoped edits. Its rules live in its own file, so it never reads the main skill.
 
@@ -80,7 +81,7 @@ pstack loads about 26KB before any work: the 20KB `poteto-mode` skill plus a Cur
 - Model choice starts at haiku or sonnet with low or medium effort, and moves up one step only with a stated reason.
 - Playbook steps go into the task list in short form. There is no verbatim copy, throughput checkpoint, or decision-log file.
 
-Dropped skills: arena, swarm, architect (now one line about sketching types first), reflect, why, orchestrate, autopilot-full, autopilot-stack, autonomous run, overnight, hillclimb, runtime and trace forensics, statechart, the four verification-skill generators (replaced by `verify`), ketchup, ketchup-video, recall, teach, sharpen, bro, automate-me, make-bot-ui, show-me-your-work, poteto-help, typescript-best-practices, benchmark-checklist (now one principle line), and the bundled scripts (watch-pr, orch, check-plan).
+Dropped skills: arena, swarm, architect (now one line about sketching types first), reflect, why, orchestrate, autopilot-full, autopilot-stack, autonomous run, overnight, hillclimb, runtime and trace forensics, statechart, the four verification-skill generators (replaced by `verify`), ketchup, ketchup-video, recall, teach, sharpen, bro, automate-me, make-bot-ui, show-me-your-work, poteto-help, benchmark-checklist (now one principle line), and the bundled scripts (watch-pr, orch, check-plan).
 
 To bring one back, copy it from pstack and remove its mandatory fan-out.
 
