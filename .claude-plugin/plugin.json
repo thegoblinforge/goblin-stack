@@ -1,6 +1,6 @@
 {
   "name": "mote-stack",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Token-light fork of pstack. Same principles (small diffs, model the domain, prove it works, fix root causes, plain prose), far less process: inline work by default, capped fan-out, cheapest model first.",
   "license": "MIT",
   "keywords": ["mote-stack", "mote-mode", "pstack", "principles", "unslop", "token-efficient"]
