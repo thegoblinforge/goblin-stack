@@ -7,9 +7,11 @@ mote-stack keeps pstack's engineering principles and its writing rules. It cuts 
 ## Install
 
 ```bash
-claude plugin marketplace add /path/to/mote-stack
+claude plugin marketplace add thegoblinforge/mote-stack
 claude plugin install mote-stack@mote-stack-local
 ```
+
+From a local clone, pass the folder path to `marketplace add` instead.
 
 Then in a session, type `/mote-stack:mote-mode`. Run `/mote-stack:setup-mote` once to pick models.
 
