@@ -34,6 +34,42 @@ Then in a session, type `/mote-stack:mote-mode`. Run `/mote-stack:setup-mote` on
 
 The `mote-agent` subagent handles scoped edits. Its rules live in its own file, so it never reads the main skill.
 
+## Workflow compared
+
+A feature request, start to finish. Orange boxes start a subagent, and each subagent loads its own context again.
+
+```mermaid
+flowchart TB
+    subgraph P["pstack: /poteto-mode"]
+        direction TB
+        P1["Read Claude Code adapter (5.7KB)<br/>+ poteto-mode skill (20.5KB)"] --> P2["Read each cited principle file<br/>(22 separate skills)"]
+        P2 --> P3["how: 2-4 explorers + 1 explainer"]
+        P3 --> P4["architect: parallel design runners<br/>(code crossing a function boundary)"]
+        P4 --> P5["Delegate code to poteto-agent<br/>or arena runners + cross-judge"]
+        P5 --> P6["Verify on matching surface"]
+        P6 --> P7["deslop, then no-comments<br/>(comment-sicko agent)"]
+        P7 --> P8["interrogate: one reviewer per model<br/>(if design is contested)"]
+        P8 --> P9["Open PR"]
+    end
+
+    subgraph M["mote-stack: /mote-mode"]
+        direction TB
+        M1["Read mote-mode skill (5.3KB)<br/>+ one playbook (under 1KB)"] --> M2["Read code inline<br/>(1 explorer only if scope is wide)"]
+        M2 --> M3["Name the data shape<br/>(principles index is inline)"]
+        M3 --> M4["Implement inline<br/>(1 mote-agent only for big mechanical edits)"]
+        M4 --> M5["verify: one positive + one negative run,<br/>saved as tests"]
+        M5 --> M6["review: inline cleanup of code and comments"]
+        M6 --> M7["Open PR<br/>(interrogate only if you ask)"]
+    end
+
+    classDef spawn fill:#f4a259,stroke:#b5651d,color:#000
+    classDef opt fill:#fde2c4,stroke:#b5651d,color:#000,stroke-dasharray: 4 3
+    class P3,P4,P5,P7,P8 spawn
+    class M2,M4 opt
+```
+
+Dashed orange boxes start a subagent only in the case named in the box. In pstack, a typical feature loads about 58KB of skill text before any subagent re-reads it. In mote-stack, it loads about 16KB.
+
 ## What was cut, and why
 
 pstack loads about 26KB before any work: the 20KB `poteto-mode` skill plus a Cursor-to-Claude adapter. Each cited principle requires reading its own file. Features must go to a delegate or a multi-model arena, `how` spawns up to five agents, and default models run at xhigh effort. mote-stack changes these points.
