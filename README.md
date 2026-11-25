@@ -4,6 +4,10 @@ A token-light fork of [pstack](https://github.com/cursor/plugins/tree/main/pstac
 
 mote-stack keeps pstack's engineering principles and its writing rules. It cuts most of the process that spends tokens without changing the result.
 
+## Who it's for
+
+mote-stack is for people on a budgeted subscription, such as Claude Pro, who hit usage limits and want every token to count. In Chilean Spanish, it helps you "exprimir el jugo": squeeze the juice out of your plan. If you have a large plan or pay per token without a cap, pstack's heavier process may be worth its cost to you.
+
 ## Install
 
 ```bash
