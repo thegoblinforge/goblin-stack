@@ -1,0 +1,11 @@
+{
+  "name": "mote-stack-local",
+  "owner": { "name": "mote-stack" },
+  "plugins": [
+    {
+      "name": "mote-stack",
+      "source": "./",
+      "description": "Token-light fork of pstack: principles kept, heavy process cut."
+    }
+  ]
+}
