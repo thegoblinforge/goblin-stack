@@ -1,6 +1,6 @@
 # Refactoring
 
-Structure changes. Behavior doesn't. Found a real bug or missing feature → split it out, ship structure first.
+Structure changes. Behavior doesn't. Found a real bug or missing feature → split it out, ship structure first. Follow `code-quality` (Refactor steps, smells as leads) alongside these steps.
 
 1. Pin behavior first: characterization test, snapshot, or old-vs-new output diff. Type check and lint are not a pin.
 2. Name target shape as if built today. It must delete branches or invalid states, not add indirection.

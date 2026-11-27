@@ -13,10 +13,11 @@ Sibling skills live at `../<name>/SKILL.md` from this file. Run one via Skill to
 ## Triggers
 
 - Any code → name data shape first, pick its organizing structure (Model the Domain). Crosses function boundary → sketch types and signatures before bodies. `.ts`/`.tsx` → **typescript**.
+- Designing, writing, or refactoring code → **code-quality** (layers route → service → repository, one owner per rule, refactor steps). Read its `smells.md` only when reviewing.
 - Fork on "which approach / what should this do" → if a run could answer it (behavior, timing, output, perf), run a quick sketch and let result decide. Ask human only for real product or taste calls.
 - Large, cross-cutting, or step-away work → **figure-it-out**.
 - Before saying done → **verify** (one positive + one negative scenario, real artifact).
-- Before commit → **review**.
+- Before commit → **review** (includes the code-quality structure check).
 - Any prose, reply included → **unslop**.
 - Contested design, high stakes → suggest `/mote-stack:interrogate`. Do not auto-run.
 - Measured number (speedup, regression, eval) → name what limits it and rule out false measurement before reporting.

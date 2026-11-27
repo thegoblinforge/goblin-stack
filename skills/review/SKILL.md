@@ -19,6 +19,10 @@ Caller's files or diff. Default: `git diff main...HEAD` plus working tree.
 - Duplicated decision → one source of truth.
 - Style inconsistent with surrounding file.
 
+## Structure: code-quality check
+
+Check each changed file against Layers and Write in `../code-quality/SKILL.md` and the groups in `../code-quality/smells.md`. Fix small findings in scope. Report larger ones as `file:line`, smell, the change it makes costly, the move.
+
 ## Comments: delete by default
 
 Keep only:
@@ -34,4 +38,4 @@ Suppressions (`@ts-ignore`, `eslint-disable`, `# type: ignore`) guarding a real-
 
 ## Then
 
-Rerun the project check (tests/lint/typecheck) once. Report: files touched, comments deleted, code fixes, open items. Plain sentences.
+Rerun the project check (tests/lint/typecheck) once. Report: files touched, comments deleted, code fixes, structure findings, open items. Plain sentences.

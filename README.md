@@ -31,6 +31,7 @@ Then in a session, type `/mote-stack:mote-mode`. Run `/mote-stack:setup-mote` on
 | `figure-it-out` | Designs a bespoke plan for large or cross-cutting work. |
 | `interrogate` | Adversarial review by at most two reviewers. Only runs when you ask. |
 | `setup-mote` | Writes `~/.claude/rules/mote-models.md`. Cheapest model first, low or medium effort. |
+| `code-quality` | Layered architecture (route, service, repository), one owner per rule, safe refactor steps, and a code-smell table. Used by mote-mode when writing code and by `review`. |
 | `typescript` | Ten TypeScript rules on one page: unions, branded types, no `as`, parsing at boundaries. Loads for `.ts` and `.tsx` files. |
 
 The `mote-agent` subagent handles scoped edits. Its rules live in its own file, so it never reads the main skill.
