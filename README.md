@@ -17,22 +17,24 @@ claude plugin install goblin-stack@goblin-stack
 
 From a local clone, pass the folder path to `marketplace add` instead.
 
-Then in a session, type `/goblin-stack:goblin-mode`. Run `/goblin-stack:setup-goblin` once to pick models.
+Then in a session, type `/goblin-stack:goblin`. Run `/goblin-stack:setup-goblin` once to pick models.
 
 ## What it contains
 
 | Skill | Use |
 | --- | --- |
-| `goblin-mode` | The working style. Principles index, autonomy rules, reply rules, and a router to five playbooks (feature, bug fix, refactoring, investigation, PR). |
-| `caveman` | Short, blunt replies in small words. Always on in goblin-mode; say "talk normal" to turn it off. Vendored from [caveman](https://github.com/akramsystems/caveman) by Ali Akram (MIT). |
+| `goblin` | The main skill and working style. Principles index, autonomy rules, reply rules, and a router to five playbooks (feature, bug fix, refactoring, investigation, PR). |
+| `caveman` | Short, blunt replies in small words. Always on in `goblin`; say "talk normal" to turn it off. Vendored from [caveman](https://github.com/akramsystems/caveman) by Ali Akram (MIT). |
 | `unslop` | Removes AI writing patterns. Ported from pstack with its rule numbers. |
 | `review` | Pre-commit pass over the diff for slop code and useless comments. Runs inline. |
 | `verify` | Minimal proof that a change works: one positive and one negative scenario, run on the real artifact. |
 | `how` | Explains how code works. Inline by default, at most one explorer for wide scopes. |
 | `figure-it-out` | Designs a bespoke plan for large or cross-cutting work. |
+| `poke` | Stress-tests a plan in as few questions as possible, each a pick from options. Goblinized grill-me from [Matt Pocock's skills](https://github.com/mattpocock/skills) (MIT). |
+| `tinker` | Finds the top 3 refactors using `code-quality` plus module depth (deletion test, interface as test surface), then runs `poke` on the one you pick. Only runs when you ask. Goblinized from Matt Pocock's `improve-codebase-architecture` (MIT). |
 | `interrogate` | Adversarial review by at most two reviewers. Only runs when you ask. |
 | `setup-goblin` | Writes `~/.claude/rules/goblin-models.md`. Cheapest model first, low or medium effort. |
-| `code-quality` | Layered architecture (route, service, repository), one owner per rule, safe refactor steps, and a code-smell table. Used by goblin-mode when writing code and by `review`. |
+| `code-quality` | Layered architecture (route, service, repository), one owner per rule, safe refactor steps, and a code-smell table. Used by `goblin` when writing code and by `review`. |
 | `typescript` | Ten TypeScript rules on one page: unions, branded types, no `as`, parsing at boundaries. Loads for `.ts` and `.tsx` files. |
 
 The `goblin-agent` subagent handles scoped edits. Its rules live in its own file, so it never reads the main skill.
@@ -55,9 +57,9 @@ flowchart TB
         P8 --> P9["Open PR"]
     end
 
-    subgraph M["goblin-stack: /goblin-mode"]
+    subgraph M["goblin-stack: /goblin"]
         direction TB
-        M1["Read goblin-mode skill (5.9KB)<br/>+ one playbook (under 1KB)"] --> M2["Read code inline<br/>(1 explorer only if scope is wide)"]
+        M1["Read goblin skill (5.9KB)<br/>+ one playbook (under 1KB)"] --> M2["Read code inline<br/>(1 explorer only if scope is wide)"]
         M2 --> M3["Name the data shape<br/>(principles index is inline)"]
         M3 --> M4["Implement inline<br/>(1 goblin-agent only for big mechanical edits)"]
         M4 --> M5["verify: one positive + one negative run,<br/>saved as tests"]
