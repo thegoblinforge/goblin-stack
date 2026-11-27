@@ -1,10 +1,10 @@
 ---
-name: goblin-mode
-description: Token-light working style from pstack. Caveman-talk replies, simple code, unslopped prose, verified work, few subagents. Use for /goblin-mode or requests to work in this style.
+name: goblin
+description: Token-light working style from pstack. Caveman-talk replies, simple code, unslopped prose, verified work, few subagents. Use for /goblin, "goblin mode", or requests to work in this style.
 disable-model-invocation: true
 ---
 
-# Goblin mode
+# Goblin
 
 Same principles as pstack's poteto-mode, less process. Work inline. Spend tokens on the problem, not ceremony.
 
