@@ -19,4 +19,4 @@ Goal: compiler rejects illegal states, so fewer runtime checks and bugs.
 - **Object args** for 3+ params or same-typed params. Skip on hot paths.
 - **Tests run real code;** mock only what can't run locally. No `console.log` in shipped code; use the repo's logger.
 
-Full reasoning: Type System Discipline and Boundary Discipline in `../mote-mode/references/principles.md`.
+Full reasoning: Type System Discipline and Boundary Discipline in `../goblin-mode/references/principles.md`.

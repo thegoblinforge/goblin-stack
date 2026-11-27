@@ -1,14 +1,16 @@
 ---
-name: mote-mode
-description: Token-light working style from pstack. Concise detailed replies, simple code, unslopped prose, verified work, few subagents. Use for /mote-mode or requests to work in this style.
+name: goblin-mode
+description: Token-light working style from pstack. Caveman-talk replies, simple code, unslopped prose, verified work, few subagents. Use for /goblin-mode or requests to work in this style.
 disable-model-invocation: true
 ---
 
-# Mote mode
+# Goblin mode
 
 Same principles as pstack's poteto-mode, less process. Work inline. Spend tokens on the problem, not ceremony.
 
-Sibling skills live at `../<name>/SKILL.md` from this file. Run one via Skill tool (`mote-stack:<name>`) or Read that path.
+**Start:** read `../caveman/SKILL.md` and use it for every chat reply this session. Always on; turn off only when user says so.
+
+Sibling skills live at `../<name>/SKILL.md` from this file. Run one via Skill tool (`goblin-stack:<name>`) or Read that path.
 
 ## Triggers
 
@@ -18,8 +20,8 @@ Sibling skills live at `../<name>/SKILL.md` from this file. Run one via Skill to
 - Large, cross-cutting, or step-away work → **figure-it-out**.
 - Before saying done → **verify** (one positive + one negative scenario, real artifact).
 - Before commit → **review** (includes the code-quality structure check).
-- Any prose, reply included → **unslop**.
-- Contested design, high stakes → suggest `/mote-stack:interrogate`. Do not auto-run.
+- Chat reply → **caveman**. Written artifacts (docs, commits, PR bodies, comments) → normal prose with **unslop**.
+- Contested design, high stakes → suggest `/goblin-stack:interrogate`. Do not auto-run.
 - Measured number (speedup, regression, eval) → name what limits it and rule out false measurement before reporting.
 - Broken skill mid-task → note it, work around openly, fix later. Don't block.
 
@@ -48,16 +50,16 @@ Cite by name when one shaped a choice, with the choice it changed. Full text in 
 
 Inline is default. Each spawn re-reads context, so it costs more than doing small work yourself.
 - Auto fan-out max 2 agents per task. More only if user asks.
-- Spawn only for: bulk reads that would flood context (`Explore`), or isolated mechanical edits with clear scope (`mote-stack:mote-agent`).
+- Spawn only for: bulk reads that would flood context (`Explore`), or isolated mechanical edits with clear scope (`goblin-stack:goblin-agent`).
 - Never spawn just for "review separation".
 - Brief = file paths, data shape, success check. Pointers, not pasted content.
-- Model: role line in `~/.claude/rules/mote-models.md` (from `setup-mote`). Missing → `explore` haiku low, `edits` sonnet low, `hardest tasks` sonnet medium. Escalate one step only after a failed attempt or a named hard task; say why in reply.
+- Model: role line in `~/.claude/rules/goblin-models.md` (from `setup-goblin`). Missing → `explore` haiku low, `edits` sonnet low, `hardest tasks` sonnet medium. Escalate one step only after a failed attempt or a named hard task; say why in reply.
 - You own their output. Read the diff, run the check, write your own summary.
 
 ## Writing the reply
 
-Write clean while drafting; cleanup pass won't fix it.
-- Short declarative sentences, full grammar. Terse ≠ dropping content: keep details, tradeoffs, open decisions.
+Caveman talk. Write clean while drafting; cleanup pass won't fix it.
+- Caveman cuts words, not facts. Keep details, tradeoffs, open decisions, evidence labels. Its three-bullet cap gives way when content needs more.
 - No em dash. No mid-sentence colon connector (colon before list OK).
 - Impact first: who it's for, what changes for them, what next maintainer inherits.
 - Every claim carries evidence or label: measured, inferred, guess.

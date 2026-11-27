@@ -1,9 +1,9 @@
 {
-  "name": "mote-stack-local",
-  "owner": { "name": "mote-stack" },
+  "name": "goblin-stack",
+  "owner": { "name": "goblin-stack" },
   "plugins": [
     {
-      "name": "mote-stack",
+      "name": "goblin-stack",
       "source": "./",
       "description": "Token-light fork of pstack: principles kept, heavy process cut."
     }

@@ -1,12 +1,12 @@
 ---
-name: setup-mote
-description: Configure which models mote-stack subagents use per role, cheapest first, low to medium effort. Writes ~/.claude/rules/mote-models.md. Use for /setup-mote or "configure mote models".
+name: setup-goblin
+description: Configure which models goblin-stack subagents use per role, cheapest first, low to medium effort. Writes ~/.claude/rules/goblin-models.md. Use for /setup-goblin or "configure goblin models".
 disable-model-invocation: true
 ---
 
-# Setup mote
+# Setup goblin
 
-Write `~/.claude/rules/mote-models.md`. Claude Code loads every file in `~/.claude/rules/` into new sessions, so role lines are in context without a read.
+Write `~/.claude/rules/goblin-models.md`. Claude Code loads every file in `~/.claude/rules/` into new sessions, so role lines are in context without a read.
 
 Policy: cheapest model that can do the role, effort `low` or `medium` only. Stronger models are an escalation step, not a default, because most subagent work is reading and mechanical edits.
 
@@ -31,7 +31,7 @@ Policy: cheapest model that can do the role, effort `low` or `medium` only. Stro
 5. **Write.** Overwrite whole file (idempotent), no frontmatter:
 
 ```
-# mote-stack model configuration. One line per role. Delete a line to use the skill default.
+# goblin-stack model configuration. One line per role. Delete a line to use the skill default.
 # inherit-parent: role runs on the parent chat model (omit Agent model).
 # Escalation: start at the role's line. Move up one step (low → medium, then haiku → sonnet → opus)
 # only after a failed attempt or for a named hardest task, and say why in the reply. Never above medium effort.

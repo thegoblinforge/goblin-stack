@@ -9,7 +9,7 @@ Goal: working mental model of a subsystem, not annotated source.
 
 1. Scope. Ambiguous → state your reading and go; user can redirect.
 2. Explore inline: `rg` for entry points, read the key files, trace one real call path end to end.
-3. Wide scope only (many dirs or services, would flood context) → one `Explore` agent, model per `how explorer` line in `~/.claude/rules/mote-models.md` (default `haiku` low). Brief: question, dirs, "return file:line refs + 1-line role each, no file dumps". Never more than one.
+3. Wide scope only (many dirs or services, would flood context) → one `Explore` agent, model per `how explorer` line in `~/.claude/rules/goblin-models.md` (default `haiku` low). Brief: question, dirs, "return file:line refs + 1-line role each, no file dumps". Never more than one.
 4. Write answer yourself.
 
 ## Output

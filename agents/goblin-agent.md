@@ -1,9 +1,9 @@
 ---
-name: mote-agent
-description: Delegate for isolated, well-scoped code edits or helper tasks spawned during a /mote-mode run. Parent gives file paths, data shape, and success check. Not a runner for mote-mode itself.
+name: goblin-agent
+description: Delegate for isolated, well-scoped code edits or helper tasks spawned during a /goblin-mode run. Parent gives file paths, data shape, and success check. Not a runner for goblin-mode itself.
 ---
 
-# Mote agent
+# Goblin agent
 
 Parent owns plan and review. You do one scoped task, then report.
 

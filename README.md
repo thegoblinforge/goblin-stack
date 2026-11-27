@@ -1,40 +1,41 @@
-# mote-stack
+# goblin-stack
 
-A token-light fork of [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan (MIT). Mote is cheap Chilean husked wheat. It costs less than a poteto.
+A token-light fork of [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan (MIT). Goblins are small, cheap, and get the job done. Its replies come in caveman talk.
 
-mote-stack keeps pstack's engineering principles and its writing rules. It cuts most of the process that spends tokens without changing the result.
+goblin-stack keeps pstack's engineering principles and its writing rules. It cuts most of the process that spends tokens without changing the result.
 
 ## Who it's for
 
-mote-stack is for people on a budgeted subscription, such as Claude Pro, who hit usage limits and want every token to count. In Chilean Spanish, it helps you "exprimir el jugo": squeeze the juice out of your plan. If you have a large plan or pay per token without a cap, pstack's heavier process may be worth its cost to you.
+goblin-stack is for people on a budgeted subscription, such as Claude Pro, who hit usage limits and want every token to count. If you have a large plan or pay per token without a cap, pstack's heavier process may be worth its cost to you.
 
 ## Install
 
 ```bash
-claude plugin marketplace add thegoblinforge/mote-stack
-claude plugin install mote-stack@mote-stack-local
+claude plugin marketplace add thegoblinforge/goblin-stack
+claude plugin install goblin-stack@goblin-stack
 ```
 
 From a local clone, pass the folder path to `marketplace add` instead.
 
-Then in a session, type `/mote-stack:mote-mode`. Run `/mote-stack:setup-mote` once to pick models.
+Then in a session, type `/goblin-stack:goblin-mode`. Run `/goblin-stack:setup-goblin` once to pick models.
 
 ## What it contains
 
 | Skill | Use |
 | --- | --- |
-| `mote-mode` | The working style. Principles index, autonomy rules, reply rules, and a router to five playbooks (feature, bug fix, refactoring, investigation, PR). |
+| `goblin-mode` | The working style. Principles index, autonomy rules, reply rules, and a router to five playbooks (feature, bug fix, refactoring, investigation, PR). |
+| `caveman` | Short, blunt replies in small words. Always on in goblin-mode; say "talk normal" to turn it off. Vendored from [caveman](https://github.com/akramsystems/caveman) by Ali Akram (MIT). |
 | `unslop` | Removes AI writing patterns. Ported from pstack with its rule numbers. |
 | `review` | Pre-commit pass over the diff for slop code and useless comments. Runs inline. |
 | `verify` | Minimal proof that a change works: one positive and one negative scenario, run on the real artifact. |
 | `how` | Explains how code works. Inline by default, at most one explorer for wide scopes. |
 | `figure-it-out` | Designs a bespoke plan for large or cross-cutting work. |
 | `interrogate` | Adversarial review by at most two reviewers. Only runs when you ask. |
-| `setup-mote` | Writes `~/.claude/rules/mote-models.md`. Cheapest model first, low or medium effort. |
-| `code-quality` | Layered architecture (route, service, repository), one owner per rule, safe refactor steps, and a code-smell table. Used by mote-mode when writing code and by `review`. |
+| `setup-goblin` | Writes `~/.claude/rules/goblin-models.md`. Cheapest model first, low or medium effort. |
+| `code-quality` | Layered architecture (route, service, repository), one owner per rule, safe refactor steps, and a code-smell table. Used by goblin-mode when writing code and by `review`. |
 | `typescript` | Ten TypeScript rules on one page: unions, branded types, no `as`, parsing at boundaries. Loads for `.ts` and `.tsx` files. |
 
-The `mote-agent` subagent handles scoped edits. Its rules live in its own file, so it never reads the main skill.
+The `goblin-agent` subagent handles scoped edits. Its rules live in its own file, so it never reads the main skill.
 
 ## Workflow compared
 
@@ -54,11 +55,11 @@ flowchart TB
         P8 --> P9["Open PR"]
     end
 
-    subgraph M["mote-stack: /mote-mode"]
+    subgraph M["goblin-stack: /goblin-mode"]
         direction TB
-        M1["Read mote-mode skill (5.3KB)<br/>+ one playbook (under 1KB)"] --> M2["Read code inline<br/>(1 explorer only if scope is wide)"]
+        M1["Read goblin-mode skill (5.9KB)<br/>+ one playbook (under 1KB)"] --> M2["Read code inline<br/>(1 explorer only if scope is wide)"]
         M2 --> M3["Name the data shape<br/>(principles index is inline)"]
-        M3 --> M4["Implement inline<br/>(1 mote-agent only for big mechanical edits)"]
+        M3 --> M4["Implement inline<br/>(1 goblin-agent only for big mechanical edits)"]
         M4 --> M5["verify: one positive + one negative run,<br/>saved as tests"]
         M5 --> M6["review: inline cleanup of code and comments"]
         M6 --> M7["Open PR<br/>(interrogate only if you ask)"]
@@ -70,11 +71,11 @@ flowchart TB
     class M2,M4 opt
 ```
 
-Dashed orange boxes start a subagent only in the case named in the box. In pstack, a typical feature loads about 58KB of skill text before any subagent re-reads it. In mote-stack, it loads about 16KB.
+Dashed orange boxes start a subagent only in the case named in the box. In pstack, a typical feature loads about 58KB of skill text before any subagent re-reads it. In goblin-stack, it loads about 16KB.
 
 ## What was cut, and why
 
-pstack loads about 26KB before any work: the 20KB `poteto-mode` skill plus a Cursor-to-Claude adapter. Each cited principle requires reading its own file. Features must go to a delegate or a multi-model arena, `how` spawns up to five agents, and default models run at xhigh effort. mote-stack changes these points.
+pstack loads about 26KB before any work: the 20KB `poteto-mode` skill plus a Cursor-to-Claude adapter. Each cited principle requires reading its own file. Features must go to a delegate or a multi-model arena, `how` spawns up to five agents, and default models run at xhigh effort. goblin-stack changes these points.
 
 - The main skill is under 6KB and uses Claude Code tool names, so there is no adapter.
 - All 22 principles sit in one reference file, read only when the one-line index is not enough.
@@ -96,7 +97,7 @@ Tested 2026-11-25 on a small Python CLI fixture. There were 3 tasks (bug fix, fe
 | Sonnet 5.5 | 2.00 | 2.50 | 0.10 | 10.00 |
 | Opus 5.5 | 4.00 | 5.00 | 0.20 | 20.00 |
 
-| Task | mote-stack | pstack |
+| Task | goblin-stack | pstack |
 | --- | --- | --- |
 | Bug fix | $0.238 | $0.253 |
 | Feature | $0.191 | $0.301 |
@@ -105,8 +106,8 @@ Tested 2026-11-25 on a small Python CLI fixture. There were 3 tasks (bug fix, fe
 | Same tokens priced on Haiku 5.5 | $0.039 | $0.050 |
 | Same tokens priced on Opus 5.5 | $1.32 | $1.72 |
 
-Both plugins passed all 12 checks. mote-stack cost 23% less and ran about 25% faster.
+These runs predate the caveman and code-quality skills. Both plugins passed all 12 checks. goblin-stack cost 23% less and ran about 25% faster.
 
 - Most of each run's cost is the cache write for about 70-80K tokens of fixed system and tool context. Skill text is a small share of that.
-- The mote feature run likely hit an already warm cache. With the earlier feature run instead, the saving is 17%.
+- The goblin feature run likely hit an already warm cache. With the earlier feature run instead, the saving is 17%.
 - The baseline favors pstack. Its default models (opus at xhigh) and its required helper agents did not run on these small tasks.
