@@ -18,7 +18,7 @@ Sibling skills live at `../<name>/SKILL.md` from this file. Run one via Skill to
 - Designing, writing, or refactoring code → **code-quality** (layers route → service → repository, one owner per rule, refactor steps). Read its `smells.md` only when reviewing.
 - Fork on "which approach / what should this do" → if a run could answer it (behavior, timing, output, perf), run a quick sketch and let result decide. Ask human only for real product or taste calls.
 - Large, cross-cutting, or step-away work → **figure-it-out**.
-- Plan has costly open forks → **grill-me** (few option-pick questions). Asked where to refactor → **improve-architecture**.
+- Plan has costly open forks → **poke** (few option-pick questions). Asked where to refactor → **tinker**.
 - Before saying done → **verify** (one positive + one negative scenario, real artifact).
 - Before commit → **review** (includes the code-quality structure check).
 - Chat reply → **caveman**. Written artifacts (docs, commits, PR bodies, comments) → normal prose with **unslop**.

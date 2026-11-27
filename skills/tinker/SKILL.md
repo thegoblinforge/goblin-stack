@@ -1,10 +1,10 @@
 ---
-name: improve-architecture
-description: Find the few refactors that make a codebase easier to change and test, using code-quality rules plus module depth. Use for /improve-architecture, "improve the architecture", "what should we refactor", or making code more testable and AI-navigable.
+name: tinker
+description: Find the few refactors that make a codebase easier to change and test, using code-quality rules plus module depth. Use for /tinker, "improve the architecture", "what should we refactor", or making code more testable and AI-navigable.
 disable-model-invocation: true
 ---
 
-# Improve architecture
+# Tinker
 
 Rules come from `../code-quality/SKILL.md` (layers, one owner per rule, refactor steps) and its `smells.md`. This skill adds **depth** and a short loop.
 
@@ -29,7 +29,7 @@ Rules come from `../code-quality/SKILL.md` (layers, one owner per rule, refactor
 3. **Rank.** Keep top 3 by cost of change today. Drop theory.
 4. **Present.** Numbered, each: files, problem, move, gain (locality, leverage, tests). Use domain names from `CONTEXT.md`. No interface designs yet.
 5. **Pick.** `AskUserQuestion`: which candidate (or none). Recommended first.
-6. **Shape.** Run `../grill-me/SKILL.md` on the chosen one. Novel interface → sketch 2 signatures inline, recommend one. No parallel design agents.
+6. **Shape.** Run `../poke/SKILL.md` on the chosen one. Novel interface → sketch 2 signatures inline, recommend one. No parallel design agents.
 7. **Record.** User rejects for a lasting reason → offer one ADR line so it isn't re-suggested. New domain term → add to `CONTEXT.md`.
 
 Doing the refactor → `refactoring` playbook and code-quality Refactor steps.

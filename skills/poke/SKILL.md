@@ -1,9 +1,9 @@
 ---
-name: grill-me
-description: Short stress-test of a plan or design. Few questions, each a pick from options with a recommended answer. Use for /grill-me, "grill me", or when user wants a plan or design stress-tested.
+name: poke
+description: Short stress-test of a plan or design. Few questions, each a pick from options with a recommended answer. Use for /poke, "poke holes", "grill me", or when user wants a plan or design stress-tested.
 ---
 
-# Grill me
+# Poke
 
 Goal: shared plan in fewest questions. Not every branch. Only forks that change what gets built.
 
