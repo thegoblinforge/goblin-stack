@@ -30,6 +30,8 @@ Then in a session, type `/goblin-stack:goblin-mode`. Run `/goblin-stack:setup-go
 | `verify` | Minimal proof that a change works: one positive and one negative scenario, run on the real artifact. |
 | `how` | Explains how code works. Inline by default, at most one explorer for wide scopes. |
 | `figure-it-out` | Designs a bespoke plan for large or cross-cutting work. |
+| `grill-me` | Stress-tests a plan in as few questions as possible, each a pick from options. Goblinized from [Matt Pocock's skills](https://github.com/mattpocock/skills) (MIT). |
+| `improve-architecture` | Finds the top 3 refactors using `code-quality` plus module depth (deletion test, interface as test surface). Only runs when you ask. Goblinized from Matt Pocock's `improve-codebase-architecture` (MIT). |
 | `interrogate` | Adversarial review by at most two reviewers. Only runs when you ask. |
 | `setup-goblin` | Writes `~/.claude/rules/goblin-models.md`. Cheapest model first, low or medium effort. |
 | `code-quality` | Layered architecture (route, service, repository), one owner per rule, safe refactor steps, and a code-smell table. Used by goblin-mode when writing code and by `review`. |
